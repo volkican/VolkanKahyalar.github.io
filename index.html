@@ -9,13 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#06070f;        /* siyah zemin */
-    --paper:#0f1120;      /* kart zemini (koyu) */
-    --panel:#181a28;      /* ikinci koyu yüzey */
-    --parchment:#eef0f8;  /* açık metin */
-    --soft:#767a8c;       /* gri metin */
+    --ink:#06070f;
+    --paper:#0f1120;
+    --panel:#181a28;
+    --parchment:#eef0f8;
+    --soft:#767a8c;
     --line:rgba(125,140,255,.14);
-    --accent:#7d8cff;     /* mor-mavi vurgu */
+    --accent:#7d8cff;
     --accent-soft:#3a46b8;
     --cream:#e2e5f0;
   }
@@ -91,39 +91,19 @@
     width:1px;height:14px;background:var(--line);
   }
 
-  /* LAYOUT */
+  /* LAYOUT — tek kolon, ortalı */
   .wrap{
-    max-width:1180px;margin:0 auto;padding:3rem 1.5rem 4rem;
-    display:grid;grid-template-columns:1fr 320px;gap:3.5rem;
+    max-width:760px;margin:0 auto;padding:3rem 1.5rem 4rem;
   }
-  .section-head{
-    font-family:'Montserrat',sans-serif;
-    font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;
-    color:var(--accent);
-    border-bottom:1px solid var(--accent);
-    padding-bottom:.6rem;margin-bottom:1.8rem;
-    display:flex;align-items:center;justify-content:space-between;
-  }
-  .section-head span:last-child{color:var(--soft);}
 
-  /* LEAD / HERO ARTICLE */
+  /* LEAD / MANŞET */
   .lead{
     background:var(--paper);border:1px solid var(--line);
-    margin-bottom:3rem;
   }
   .lead-figure{
-    height:300px;
-    background:
-      radial-gradient(ellipse at 70% 40%,rgba(90,105,255,.45),transparent 60%),
-      radial-gradient(ellipse at 30% 70%,rgba(50,60,180,.35),transparent 50%),
-      linear-gradient(135deg,#0a0d2a,var(--ink));
-    position:relative;overflow:hidden;
+    height:340px;position:relative;overflow:hidden;
     display:flex;align-items:flex-end;
-  }
-  .lead-figure::after{
-    content:'V';position:absolute;right:-2rem;top:-6rem;
-    font-family:'Playfair Display',serif;font-style:italic;font-weight:900;
-    font-size:24rem;color:rgba(125,140,255,.06);
+    background:linear-gradient(135deg,#0a0d2a,var(--ink));
   }
   .lead-figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
   .lead-figure::before{
@@ -155,182 +135,11 @@
   }
   .read-more:hover{opacity:.65;}
 
-  /* SERVICE ARTICLES */
-  .article{
-    background:var(--paper);border:1px solid var(--line);
-    padding:1.8rem 2rem;margin-bottom:1.6rem;
-    display:grid;grid-template-columns:64px 1fr;gap:1.4rem;
-    transition:transform .25s,border-color .25s;
-  }
-  .article:hover{transform:translateY(-2px);border-color:var(--accent);}
-  .article .num{
-    font-family:'Playfair Display',serif;font-style:italic;font-weight:900;
-    font-size:2.6rem;color:rgba(125,140,255,.2);line-height:1;
-  }
-  .article .cat{
-    font-family:'Montserrat',sans-serif;font-size:.6rem;
-    letter-spacing:.2em;text-transform:uppercase;color:var(--accent);opacity:.8;
-    margin-bottom:.4rem;
-  }
-  .article h3{
-    font-family:'Playfair Display',serif;font-weight:700;
-    font-size:1.4rem;line-height:1.2;margin-bottom:.5rem;color:var(--cream);
-  }
-  .article h3 a:hover{color:var(--accent);}
-  .article .excerpt{color:var(--soft);font-size:1rem;margin-bottom:.9rem;}
-  .article ul{list-style:none;margin-bottom:1rem;}
-  .article ul li{
-    font-size:.95rem;color:var(--soft);padding:.25rem 0;
-    border-bottom:1px dotted var(--line);display:flex;gap:.6rem;
-  }
-  .article ul li::before{content:'§';color:var(--accent);flex-shrink:0;}
-
-  /* ABOUT BLOCK */
-  .about-block{
-    background:var(--panel);color:var(--cream);
-    padding:2.6rem 2.4rem;margin-bottom:3rem;border:1px solid var(--line);
-  }
-  .about-block .pull{
-    font-family:'Playfair Display',serif;font-style:italic;font-weight:500;
-    font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.35;
-    border-left:3px solid var(--accent);padding-left:1.6rem;margin-bottom:1.6rem;
-  }
-  .about-block p{color:var(--soft);margin-bottom:1rem;}
-  .about-block p strong{color:var(--parchment);}
-  .about-stats{
-    display:grid;grid-template-columns:repeat(3,1fr);
-    border-top:1px solid var(--line);margin-top:1.6rem;
-  }
-  .about-stats div{text-align:center;padding:1.2rem .5rem;}
-  .about-stats div+div{border-left:1px solid var(--line);}
-  .about-stats .n{
-    font-family:'Playfair Display',serif;font-weight:900;
-    font-size:2rem;color:var(--accent);display:block;
-  }
-  .about-stats .l{
-    font-family:'Montserrat',sans-serif;font-size:.58rem;
-    letter-spacing:.14em;text-transform:uppercase;color:var(--soft);
-  }
-
-  /* SIDEBAR */
-  aside{position:sticky;top:90px;align-self:start;}
-  aside .widget{margin-bottom:2.6rem;}
-  aside .w-head{
-    font-family:'Montserrat',sans-serif;font-size:.66rem;
-    letter-spacing:.24em;text-transform:uppercase;font-weight:700;
-    color:var(--parchment);border-bottom:3px double var(--accent);
-    padding-bottom:.5rem;margin-bottom:1.2rem;
-  }
-  .bio{background:var(--paper);border:1px solid var(--line);padding:1.6rem;text-align:center;}
-  .bio .avatar{
-    width:84px;height:84px;border-radius:50%;margin:0 auto 1rem;
-    background:radial-gradient(circle at 35% 30%,var(--accent),var(--accent-soft));
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Playfair Display',serif;font-weight:900;font-size:2rem;color:var(--ink);
-  }
-  .bio h4{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:.5rem;color:var(--cream);}
-  .bio p{font-size:.92rem;color:var(--soft);font-style:italic;margin-bottom:1rem;}
-  .bio .bio-social{display:flex;justify-content:center;gap:1rem;}
-  .bio .bio-social a{
-    font-family:'Montserrat',sans-serif;font-size:.62rem;letter-spacing:.12em;
-    text-transform:uppercase;color:var(--accent);transition:opacity .25s;
-  }
-  .bio .bio-social a:hover{opacity:.6;}
-
-  .w-list{list-style:none;}
-  .w-list li{border-bottom:1px solid var(--line);padding:.7rem 0;}
-  .w-list li:last-child{border-bottom:none;}
-  .w-list a{display:block;transition:color .25s;}
-  .w-list a:hover{color:var(--accent);}
-  .w-list .t{font-family:'Playfair Display',serif;font-size:1.02rem;line-height:1.25;color:var(--cream);}
-  .w-list .m{
-    font-family:'Montserrat',sans-serif;font-size:.58rem;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--accent);opacity:.75;margin-top:.2rem;display:block;
-  }
-
-  .newsletter{background:var(--panel);color:var(--cream);padding:1.8rem 1.6rem;border:1px solid var(--line);}
-  .newsletter .w-head{color:var(--parchment);}
-  .newsletter p{font-size:.9rem;color:var(--soft);font-style:italic;margin-bottom:1.1rem;}
-  .newsletter .field{display:flex;flex-direction:column;gap:.6rem;}
-  .newsletter input{
-    padding:.7rem .9rem;border:1px solid var(--line);
-    background:var(--ink);color:var(--parchment);font-family:'Lora',serif;font-size:.9rem;
-  }
-  .newsletter input::placeholder{color:var(--soft);}
-  .newsletter button{
-    background:var(--accent);color:var(--ink);border:none;cursor:pointer;
-    font-family:'Montserrat',sans-serif;font-size:.66rem;letter-spacing:.16em;
-    text-transform:uppercase;font-weight:700;padding:.75rem;transition:background .25s;
-  }
-  .newsletter button:hover{background:var(--cream);}
-
-  /* CONTACT */
-  .contact{
-    background:linear-gradient(135deg,#0a0d24,var(--ink));
-    border-top:3px double var(--accent);border-bottom:1px solid var(--line);
-    padding:4rem 1.5rem;text-align:center;
-  }
-  .contact .kicker{
-    font-family:'Montserrat',sans-serif;font-size:.64rem;letter-spacing:.3em;
-    text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;
-  }
-  .contact h2{
-    font-family:'Playfair Display',serif;font-weight:900;
-    font-size:clamp(1.9rem,4vw,3rem);line-height:1.1;margin-bottom:.8rem;color:var(--cream);
-  }
-  .contact h2 em{font-style:italic;color:var(--accent);}
-  .contact .lede{color:var(--soft);font-style:italic;max-width:560px;margin:0 auto 2.4rem;}
-  .contact-grid{
-    display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;
-    max-width:760px;margin:0 auto 1.8rem;
-  }
-  .contact-card{
-    flex:1;min-width:150px;max-width:180px;
-    border:1px solid var(--line);padding:1.6rem 1rem;transition:all .25s;
-  }
-  .contact-card:hover{border-color:var(--accent);transform:translateY(-3px);background:rgba(125,140,255,.06);}
-  .contact-card .ic{font-size:1.5rem;margin-bottom:.6rem;display:block;}
-  .contact-card .ct{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--cream);}
-  .contact-card .cd{font-size:.8rem;color:var(--soft);font-style:italic;margin-top:.2rem;}
-  .contact .note{
-    font-family:'Montserrat',sans-serif;font-size:.74rem;letter-spacing:.04em;color:var(--soft);
-  }
-  .contact .note strong{color:var(--parchment);}
-
-  /* FOOTER */
-  footer{background:#03040a;color:var(--soft);padding:3rem 1.5rem 2rem;border-top:1px solid var(--line);}
-  .foot-grid{
-    max-width:1180px;margin:0 auto;
-    display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:3rem;margin-bottom:2.4rem;
-  }
-  .foot-brand h3{font-family:'Playfair Display',serif;font-weight:900;font-size:1.6rem;color:var(--accent);margin-bottom:.8rem;}
-  .foot-brand p{font-size:.92rem;font-style:italic;line-height:1.6;}
-  .foot-col h5{
-    font-family:'Montserrat',sans-serif;font-size:.6rem;letter-spacing:.2em;
-    text-transform:uppercase;color:var(--accent);margin-bottom:1rem;
-  }
-  .foot-col ul{list-style:none;}
-  .foot-col ul li{margin-bottom:.55rem;}
-  .foot-col ul a{font-size:.94rem;transition:color .25s;}
-  .foot-col ul a:hover{color:var(--accent);}
-  .foot-bottom{
-    max-width:1180px;margin:0 auto;border-top:1px solid var(--line);
-    padding-top:1.4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
-    font-family:'Montserrat',sans-serif;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7;
-  }
-  .foot-bottom .s{display:flex;gap:1.2rem;}
-  .foot-bottom .s a:hover{color:var(--accent);}
-
   @media(max-width:880px){
     .topbar{padding:.55rem 1rem;font-size:.62rem;}
     .topbar .date{display:none;}
     nav.menu a{padding:.8rem .8rem;font-size:.64rem;letter-spacing:.1em;}
-    .wrap{grid-template-columns:1fr;gap:0;padding:2rem 1rem 3rem;}
-    aside{position:static;margin-top:1rem;}
-    .article{grid-template-columns:1fr;gap:.6rem;}
-    .article .num{font-size:2rem;}
-    .foot-grid{grid-template-columns:1fr;gap:2rem;}
-    .lead-figure::after{font-size:14rem;}
+    .wrap{padding:2rem 1rem 3rem;}
   }
 </style>
 </head>
@@ -357,191 +166,30 @@
 <nav class="menu">
   <ul>
     <li><a href="#">Ana Sayfa</a></li>
-    <li><a href="#hakkinda">Hakkımda</a></li>
-    <li><a href="#hizmetler">Hizmetler</a></li>
     <li><a href="https://volkankahyalar.com/kitap-dedektifiyiz/" target="_blank">Kitap Dedektifiyiz</a></li>
     <li><a href="https://volkankahyalar.substack.com" target="_blank">Substack</a></li>
-    <li><a href="#iletisim">İletişim</a></li>
   </ul>
 </nav>
 
 <!-- BODY -->
 <div class="wrap">
 
-  <!-- MAIN COLUMN -->
-  <main>
-
-    <!-- LEAD ARTICLE -->
-    <article class="lead">
-      <div class="lead-figure">
-        <img src="https://static.bianet.org/haber/2026/03/03/beraat-yetmedi-gocnette-tehdit-olarak-kaldi.jpg" alt="Beraat yetmedi: GöçNet'te tehdit olarak kaldı">
-        <span class="cat">Manşet · Bianet</span>
-      </div>
-      <div class="lead-body">
-        <div class="byline">Volkan Kahyalar — Dünya · 3 Mart 2026</div>
-        <h2>Beraat yetmedi:<br><em>GöçNet'te "tehdit" olarak kaldı</em></h2>
-        <p>Devletlerin ve şirketlerin "güvenli" dediği verilerin akıbeti daha ürkütücü. Açık Kaynak İstihbaratı (OSINT) taramalarında, sığınmacılara ait biyometrik verilerin dark web'de "Tam Kimlik Paketi" adıyla 30 dolara satıldığı görülüyor.</p>
-        <p>Beraat eden bir sığınmacının, idari veri tabanında nasıl süresiz bir "tehdit kodu" olarak kaldığının izini süren saha incelemesi.</p>
-        <a href="https://bianet.org/haber/beraat-yetmedi-gocnette-tehdit-olarak-kaldi-317272" target="_blank" class="read-more">Devamını Oku →</a>
-      </div>
-    </article>
-
-    <!-- HİZMETLER -->
-    <div class="section-head" id="hizmetler"><span>Hizmet Alanlarım</span><span>Dosya</span></div>
-
-    <article class="article">
-      <div class="num">01</div>
-      <div>
-        <div class="cat">White-Collar · LinkedIn</div>
-        <h3><a href="#iletisim">Profesyonel Marka & LinkedIn Yönetimi</a></h3>
-        <p class="excerpt">Kurumsal hayatta sıkışıp kalanlar veya seviye atlamak isteyenler için.</p>
-        <ul>
-          <li>LinkedIn profil optimizasyonu (algoritma dostu)</li>
-          <li>Stratejik ağ kurma (networking) taktikleri</li>
-          <li>Kişisel marka konumlandırması</li>
-        </ul>
-        <a href="#iletisim" class="read-more">Danışmanlık Al →</a>
-      </div>
-    </article>
-
-    <article class="article">
-      <div class="num">02</div>
-      <div>
-        <div class="cat">Blue-Sky · Akademi</div>
-        <h3><a href="#iletisim">Akademik & Entelektüel Görünürlük</a></h3>
-        <p class="excerpt">Akademisyenler ve uzmanlar için; bilginizi geniş kitlelere ulaştırma sanatı.</p>
-        <ul>
-          <li>Akademik dilden popüler medya diline geçiş</li>
-          <li>Substack & e-bülten stratejileri</li>
-          <li>"Uzman" kimliğini dijitalde parlatma</li>
-        </ul>
-        <a href="#iletisim" class="read-more">Danışmanlık Al →</a>
-      </div>
-    </article>
-
-    <article class="article">
-      <div class="num">03</div>
-      <div>
-        <div class="cat">Kariyer Dönüşümü · ATS</div>
-        <h3><a href="#iletisim">İş Değiştirme & ATS Danışmanlığı</a></h3>
-        <p class="excerpt">Başvurularınızın neden reddedildiğini öğrenin ve rotanızı yeniden çizin.</p>
-        <ul>
-          <li>ATS uyumlu CV hazırlama</li>
-          <li>Mülakat simülasyonları & hikâyeleştirme</li>
-          <li>Kariyer rotasını yeniden çizme</li>
-        </ul>
-        <a href="#iletisim" class="read-more">Danışmanlık Al →</a>
-      </div>
-    </article>
-
-    <!-- HAKKINDA -->
-    <div class="section-head" id="hakkinda"><span>Hakkımda</span><span>Künye</span></div>
-    <div class="about-block">
-      <div class="pull">"Klasik İK süreçlerinin aksine; danışanlarıma hikâye anlatıcılığı ve veri odaklı strateji ile hizmet veririm."</div>
-      <p><strong>Volkan Kahyalar</strong>; 20 yıllık gazetecilik ve saha deneyimini stratejik marka yönetimiyle birleştiren bir <strong>Yeni Nesil Kariyer Koçudur.</strong></p>
-      <p>Yıllarca kelimelerle hikâye kurdum; şimdi o ustalığı kariyerinizin hikâyesine taşıyorum. Sadece teorik tavsiyeler değil — sonuç odaklı stratejiler.</p>
-      <div class="about-stats">
-        <div><span class="n">20+</span><span class="l">Yıl Deneyim</span></div>
-        <div><span class="n">3</span><span class="l">Hizmet Alanı</span></div>
-        <div><span class="n">∞</span><span class="l">Potansiyel</span></div>
-      </div>
+  <!-- MANŞET -->
+  <article class="lead">
+    <div class="lead-figure">
+      <img src="https://static.bianet.org/haber/2026/03/03/beraat-yetmedi-gocnette-tehdit-olarak-kaldi.jpg" alt="Beraat yetmedi: GöçNet'te tehdit olarak kaldı">
+      <span class="cat">Manşet · Bianet</span>
     </div>
-
-  </main>
-
-  <!-- SIDEBAR -->
-  <aside>
-
-    <div class="widget">
-      <div class="bio">
-        <div class="avatar">VK</div>
-        <h4>Volkan Kahyalar</h4>
-        <p>20 yıllık gazetecilik deneyimiyle kariyer danışmanlığı ve kişisel marka yönetimi.</p>
-        <div class="bio-social">
-          <a href="https://www.linkedin.com/in/volkan-kahyalar/" target="_blank">LinkedIn</a>
-          <a href="https://volkankahyalar.substack.com" target="_blank">Substack</a>
-        </div>
-      </div>
+    <div class="lead-body">
+      <div class="byline">Volkan Kahyalar — Dünya · 3 Mart 2026</div>
+      <h2>Beraat yetmedi:<br><em>GöçNet'te "tehdit" olarak kaldı</em></h2>
+      <p>Devletlerin ve şirketlerin "güvenli" dediği verilerin akıbeti daha ürkütücü. Açık Kaynak İstihbaratı (OSINT) taramalarında, sığınmacılara ait biyometrik verilerin dark web'de "Tam Kimlik Paketi" adıyla 30 dolara satıldığı görülüyor.</p>
+      <p>Beraat eden bir sığınmacının, idari veri tabanında nasıl süresiz bir "tehdit kodu" olarak kaldığının izini süren saha incelemesi.</p>
+      <a href="https://bianet.org/haber/beraat-yetmedi-gocnette-tehdit-olarak-kaldi-317272" target="_blank" class="read-more">Devamını Oku →</a>
     </div>
-
-    <div class="widget">
-      <div class="w-head">Yazılarım</div>
-      <ul class="w-list">
-        <li><a href="https://bianet.org/haber/beraat-yetmedi-gocnette-tehdit-olarak-kaldi-317272" target="_blank"><span class="t">Beraat yetmedi: GöçNet'te "tehdit" olarak kaldı</span><span class="m">Bianet · 3 Mart 2026</span></a></li>
-        <li><a href="https://bianet.org/haber/sosyal-medyanin-2025-karnesi-dijital-sinir-ihlalleri-ve-toplumsal-ofke-cagi-315038" target="_blank"><span class="t">Sosyal medyanın 2025 karnesi: Dijital sınır ihlalleri ve toplumsal öfke çağı</span><span class="m">Bianet · 31 Aralık 2025</span></a></li>
-        <!-- Yeni yazı eklemek için bu kalıbı kopyala:
-        <li><a href="YAZI_LINKI" target="_blank"><span class="t">YAZI BAŞLIĞI</span><span class="m">YAYIN · TARİH</span></a></li>
-        -->
-      </ul>
-    </div>
-
-  </aside>
+  </article>
 
 </div>
-
-<!-- İLETİŞİM -->
-<section class="contact" id="iletisim">
-  <div class="kicker">İletişim</div>
-  <h2>Yarına kalmayın,<br><em>bugünden başlayalım.</em></h2>
-  <p class="lede">Kariyeriniz veya akademik markanız için beklemek, fırsat maliyetini artırır. Size özel bir yol haritası için hemen ulaşın.</p>
-  <div class="contact-grid">
-    <a href="mailto:volkan@volkankahyalar.com" class="contact-card">
-      <span class="ic">✉</span>
-      <div class="ct">E-Posta</div>
-      <div class="cd">volkan@volkankahyalar.com</div>
-    </a>
-    <a href="https://www.linkedin.com/in/volkan-kahyalar/" target="_blank" class="contact-card">
-      <span class="ic">in</span>
-      <div class="ct">LinkedIn</div>
-      <div class="cd">Doğrudan mesaj</div>
-    </a>
-    <a href="https://bionluk.com/volkankahyalar" target="_blank" class="contact-card">
-      <span class="ic">🎯</span>
-      <div class="ct">Bionluk</div>
-      <div class="cd">Hizmet satın al</div>
-    </a>
-    <a href="https://armut.com/hizmetveren/volkan-kahyalar-istanbul-sisli-meslek-danismani_18224214" target="_blank" class="contact-card">
-      <span class="ic">🔧</span>
-      <div class="ct">Armut</div>
-      <div class="cd">Teklif al</div>
-    </a>
-  </div>
-  <p class="note">Mesajınıza <strong>"Web sitenizden ulaşıyorum"</strong> notunu düşerseniz öncelik tanıyacağım.</p>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="foot-grid">
-    <div class="foot-brand">
-      <h3>Volkan Kahyalar</h3>
-      <p>Yeni Nesil Kariyer & Lider Marka Koçu. 20 yıllık gazetecilik deneyimiyle kariyer danışmanlığı ve kişisel marka yönetimi.</p>
-    </div>
-    <div class="foot-col">
-      <h5>Hizmetler</h5>
-      <ul>
-        <li><a href="#hizmetler">LinkedIn & Marka Yönetimi</a></li>
-        <li><a href="#hizmetler">Akademik Görünürlük</a></li>
-        <li><a href="#hizmetler">Kariyer Dönüşümü</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h5>Bağlantı</h5>
-      <ul>
-        <li><a href="https://www.linkedin.com/in/volkan-kahyalar/" target="_blank">LinkedIn</a></li>
-        <li><a href="https://volkankahyalar.substack.com" target="_blank">Substack</a></li>
-        <li><a href="https://volkankahyalar.com/kitap-dedektifiyiz/" target="_blank">Kitap Dedektifiyiz</a></li>
-        <li><a href="mailto:volkan@volkankahyalar.com">E-Posta</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="foot-bottom">
-    <span>© 2026 Volkan Kahyalar — Tüm hakları saklıdır.</span>
-    <div class="s">
-      <a href="https://www.linkedin.com/in/volkan-kahyalar/" target="_blank">LinkedIn</a>
-      <a href="https://volkankahyalar.substack.com" target="_blank">Substack</a>
-    </div>
-  </div>
-</footer>
 
 <script>
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
