@@ -4,576 +4,537 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Volkan Kahyalar — Yeni Nesil Kariyer & Lider Marka Koçu</title>
-<link rel="icon" type="image/png" href="favicon.png">
 <meta name="description" content="Volkan Kahyalar — Yeni Nesil Kariyer ve Lider Marka Koçu. 20 yıllık gazetecilik deneyimiyle kariyer danışmanlığı, LinkedIn kişisel marka yönetimi ve kurumsal danışmanlık.">
-<meta name="keywords" content="volkan kahyalar, kariyer koçu, marka danışmanlığı, linkedin, kişisel marka, kariyer danışmanlığı">
-<meta name="author" content="Volkan Kahyalar">
-<meta property="og:title" content="Volkan Kahyalar — Yeni Nesil Kariyer & Lider Marka Koçu">
-<meta property="og:description" content="Geleceğe İmzanızı Taşır!">
-<meta property="og:url" content="https://volkankahyalar.com/">
-<meta property="og:type" content="website">
-<link rel="canonical" href="https://volkankahyalar.com/">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #06070f;
-    --parchment: #eef0f8;
-    --gold: #7d8cff;
-    --rust: #3a46b8;
-    --ash: #181a28;
-    --smoke: #767a8c;
-    --cream: #e2e5f0;
+  :root{
+    --ink:#06070f;        /* siyah zemin */
+    --paper:#0f1120;      /* kart zemini (koyu) */
+    --panel:#181a28;      /* ikinci koyu yüzey */
+    --parchment:#eef0f8;  /* açık metin */
+    --soft:#767a8c;       /* gri metin */
+    --line:rgba(125,140,255,.14);
+    --accent:#7d8cff;     /* mor-mavi vurgu */
+    --accent-soft:#3a46b8;
+    --cream:#e2e5f0;
   }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    background-color: var(--ink);
-    color: var(--parchment);
-    font-family: 'Crimson Text', Georgia, serif;
-    font-size: 18px;
-    line-height: 1.7;
-    cursor: none;
-    overflow-x: hidden;
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:'Lora',Georgia,serif;
+    font-size:17px;
+    line-height:1.75;
   }
+  a{color:inherit;text-decoration:none;}
 
-  .cursor {
-    position: fixed; width: 8px; height: 8px;
-    background: var(--gold); border-radius: 50%;
-    pointer-events: none; z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease;
+  /* TOP BAR */
+  .topbar{
+    background:#03040a;
+    color:var(--soft);
+    font-family:'Montserrat',sans-serif;
+    font-size:0.7rem;letter-spacing:.08em;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:.55rem 2rem;border-bottom:1px solid var(--line);
   }
-  .cursor-ring {
-    position: fixed; width: 32px; height: 32px;
-    border: 1px solid rgba(125,140,255,0.4); border-radius: 50%;
-    pointer-events: none; z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: all 0.18s ease;
-  }
+  .topbar .date{text-transform:uppercase;opacity:.7;}
+  .topbar .socials{display:flex;gap:1.4rem;}
+  .topbar .socials a{text-transform:uppercase;transition:color .25s;}
+  .topbar .socials a:hover{color:var(--accent);}
 
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none; z-index: 9000; opacity: 0.35;
+  /* MASTHEAD */
+  .masthead{
+    background:var(--ink);
+    text-align:center;
+    padding:2.6rem 1.5rem 1.8rem;
+    border-bottom:1px solid var(--line);
+  }
+  .masthead .kicker{
+    font-family:'Montserrat',sans-serif;
+    font-size:.62rem;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:.9rem;
+  }
+  .masthead h1{
+    font-family:'Playfair Display',serif;
+    font-weight:900;font-size:clamp(2.4rem,6vw,4.6rem);
+    line-height:1;letter-spacing:-.01em;color:var(--parchment);
+  }
+  .masthead .tagline{
+    font-family:'Lora',serif;font-style:italic;
+    color:var(--soft);font-size:1rem;margin-top:.7rem;
   }
 
   /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 1.5rem 4rem;
-    display: flex; justify-content: space-between; align-items: center;
-    background: linear-gradient(to bottom, rgba(6,7,15,0.95), transparent);
+  nav.menu{
+    background:var(--ink);
+    border-top:1px solid var(--line);
+    border-bottom:3px double var(--accent);
+    position:sticky;top:0;z-index:50;
   }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem; font-weight: 900; letter-spacing: 0.05em;
-    color: var(--gold); text-decoration: none;
+  nav.menu ul{
+    list-style:none;display:flex;justify-content:center;flex-wrap:wrap;
+    max-width:1180px;margin:0 auto;
   }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--smoke); text-decoration: none; transition: color 0.3s;
+  nav.menu li{position:relative;}
+  nav.menu a{
+    display:block;
+    font-family:'Montserrat',sans-serif;
+    font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+    font-weight:600;color:var(--parchment);
+    padding:1rem 1.35rem;transition:color .25s,background .25s;
   }
-  .nav-links a:hover { color: var(--gold); }
+  nav.menu a:hover{color:var(--accent);background:var(--panel);}
+  nav.menu li+li::before{
+    content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+    width:1px;height:14px;background:var(--line);
+  }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: grid; grid-template-columns: 1fr 1fr;
-    position: relative; overflow: hidden;
+  /* LAYOUT */
+  .wrap{
+    max-width:1180px;margin:0 auto;padding:3rem 1.5rem 4rem;
+    display:grid;grid-template-columns:1fr 320px;gap:3.5rem;
   }
-  .hero-left {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 8rem 4rem 4rem 4rem; position: relative; z-index: 2;
+  .section-head{
+    font-family:'Montserrat',sans-serif;
+    font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--accent);
+    border-bottom:1px solid var(--accent);
+    padding-bottom:.6rem;margin-bottom:1.8rem;
+    display:flex;align-items:center;justify-content:space-between;
   }
-  .hero-eyebrow {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 2rem;
-    opacity: 0; animation: fadeUp 1s ease 0.3s forwards;
-  }
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 5.5vw, 5.5rem);
-    font-weight: 900; line-height: 1.05; letter-spacing: -0.02em;
-    margin-bottom: 1.5rem;
-    opacity: 0; animation: fadeUp 1s ease 0.5s forwards;
-  }
-  .hero-title em { font-style: italic; color: var(--gold); }
-  .hero-subtitle {
-    font-family: 'Crimson Text', serif;
-    font-size: 1.2rem; color: var(--smoke); max-width: 440px;
-    margin-bottom: 3rem; font-style: italic;
-    opacity: 0; animation: fadeUp 1s ease 0.7s forwards;
-  }
-  .hero-cta {
-    display: flex; gap: 1.2rem; flex-wrap: wrap;
-    opacity: 0; animation: fadeUp 1s ease 0.9s forwards;
-  }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    background: var(--gold); color: var(--ink);
-    padding: 0.85rem 2rem;
-    font-family: 'Space Mono', monospace; font-size: 0.7rem;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    text-decoration: none; font-weight: 700;
-    transition: all 0.3s; position: relative; overflow: hidden;
-  }
-  .btn-primary::before {
-    content: ''; position: absolute; inset: 0;
-    background: var(--rust); transform: translateX(-100%);
-    transition: transform 0.4s ease;
-  }
-  .btn-primary:hover::before { transform: translateX(0); }
-  .btn-primary:hover { color: var(--parchment); }
-  .btn-primary span { position: relative; z-index: 1; }
-  .btn-secondary {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    border: 1px solid rgba(125,140,255,0.3); color: var(--parchment);
-    padding: 0.85rem 2rem;
-    font-family: 'Space Mono', monospace; font-size: 0.7rem;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    text-decoration: none; transition: all 0.3s;
-  }
-  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+  .section-head span:last-child{color:var(--soft);}
 
-  .hero-right { position: relative; overflow: hidden; }
-  .hero-visual {
-    position: absolute; inset: 0;
+  /* LEAD / HERO ARTICLE */
+  .lead{
+    background:var(--paper);border:1px solid var(--line);
+    margin-bottom:3rem;
+  }
+  .lead-figure{
+    height:300px;
     background:
-      radial-gradient(ellipse at 70% 40%, rgba(90,105,255,0.45) 0%, transparent 60%),
-      radial-gradient(ellipse at 30% 70%, rgba(50,60,180,0.35) 0%, transparent 50%),
-      linear-gradient(135deg, #0a0d2a 0%, var(--ink) 100%);
+      radial-gradient(ellipse at 70% 40%,rgba(90,105,255,.45),transparent 60%),
+      radial-gradient(ellipse at 30% 70%,rgba(50,60,180,.35),transparent 50%),
+      linear-gradient(135deg,#0a0d2a,var(--ink));
+    position:relative;overflow:hidden;
+    display:flex;align-items:flex-end;
   }
-  .hero-photo {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%) rotate(-3deg);
-    width: 75%; border-radius: 16px; overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    animation: slowFloat 12s ease-in-out infinite;
+  .lead-figure::after{
+    content:'V';position:absolute;right:-2rem;top:-6rem;
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:900;
+    font-size:24rem;color:rgba(125,140,255,.06);
   }
-  .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .hero-lines { position: absolute; inset: 0; overflow: hidden; opacity: 0.15; }
-  .hero-lines::before, .hero-lines::after {
-    content: ''; position: absolute; left: -10%; width: 120%; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    transform: rotate(-15deg);
+  .lead-figure .cat{
+    position:relative;z-index:1;margin:1.4rem;
+    font-family:'Montserrat',sans-serif;font-size:.62rem;
+    letter-spacing:.25em;text-transform:uppercase;
+    background:var(--accent);color:var(--ink);padding:.4rem .9rem;font-weight:700;
   }
-  .hero-lines::before { top: 20%; }
-  .hero-lines::after { top: 65%; }
+  .lead-body{padding:2.2rem 2.4rem 2.4rem;}
+  .lead-body h2{
+    font-family:'Playfair Display',serif;font-weight:900;
+    font-size:clamp(1.8rem,3.4vw,2.9rem);line-height:1.1;margin-bottom:1rem;color:var(--cream);
+  }
+  .lead-body h2 em{font-style:italic;color:var(--accent);}
+  .lead-body p{color:var(--soft);margin-bottom:1rem;font-size:1.08rem;}
+  .lead-body .byline{
+    font-family:'Montserrat',sans-serif;font-size:.66rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;opacity:.8;
+  }
+  .read-more{
+    display:inline-block;font-family:'Montserrat',sans-serif;
+    font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+    color:var(--accent);border-bottom:2px solid var(--accent);
+    padding-bottom:2px;transition:opacity .25s;
+  }
+  .read-more:hover{opacity:.65;}
 
-  .hero-scroll {
-    position: absolute; bottom: 2.5rem; left: 4rem;
-    display: flex; align-items: center; gap: 1rem;
-    font-family: 'Space Mono', monospace; font-size: 0.6rem;
-    letter-spacing: 0.2em; text-transform: uppercase; color: var(--smoke);
-    opacity: 0; animation: fadeUp 1s ease 1.3s forwards;
+  /* SERVICE ARTICLES */
+  .article{
+    background:var(--paper);border:1px solid var(--line);
+    padding:1.8rem 2rem;margin-bottom:1.6rem;
+    display:grid;grid-template-columns:64px 1fr;gap:1.4rem;
+    transition:transform .25s,border-color .25s;
   }
-  .scroll-line {
-    width: 40px; height: 1px; background: var(--smoke);
-    animation: scrollPulse 2s ease-in-out infinite;
+  .article:hover{transform:translateY(-2px);border-color:var(--accent);}
+  .article .num{
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:900;
+    font-size:2.6rem;color:rgba(125,140,255,.2);line-height:1;
+  }
+  .article .cat{
+    font-family:'Montserrat',sans-serif;font-size:.6rem;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--accent);opacity:.8;
+    margin-bottom:.4rem;
+  }
+  .article h3{
+    font-family:'Playfair Display',serif;font-weight:700;
+    font-size:1.4rem;line-height:1.2;margin-bottom:.5rem;color:var(--cream);
+  }
+  .article h3 a:hover{color:var(--accent);}
+  .article .excerpt{color:var(--soft);font-size:1rem;margin-bottom:.9rem;}
+  .article ul{list-style:none;margin-bottom:1rem;}
+  .article ul li{
+    font-size:.95rem;color:var(--soft);padding:.25rem 0;
+    border-bottom:1px dotted var(--line);display:flex;gap:.6rem;
+  }
+  .article ul li::before{content:'§';color:var(--accent);flex-shrink:0;}
+
+  /* ABOUT BLOCK */
+  .about-block{
+    background:var(--panel);color:var(--cream);
+    padding:2.6rem 2.4rem;margin-bottom:3rem;border:1px solid var(--line);
+  }
+  .about-block .pull{
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:500;
+    font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.35;
+    border-left:3px solid var(--accent);padding-left:1.6rem;margin-bottom:1.6rem;
+  }
+  .about-block p{color:var(--soft);margin-bottom:1rem;}
+  .about-block p strong{color:var(--parchment);}
+  .about-stats{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--line);margin-top:1.6rem;
+  }
+  .about-stats div{text-align:center;padding:1.2rem .5rem;}
+  .about-stats div+div{border-left:1px solid var(--line);}
+  .about-stats .n{
+    font-family:'Playfair Display',serif;font-weight:900;
+    font-size:2rem;color:var(--accent);display:block;
+  }
+  .about-stats .l{
+    font-family:'Montserrat',sans-serif;font-size:.58rem;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--soft);
   }
 
-  /* HAKKINDA */
-  .about {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 6rem; align-items: center;
-    background: var(--ash); padding: 7rem 4rem;
+  /* SIDEBAR */
+  aside .widget{margin-bottom:2.6rem;}
+  aside .w-head{
+    font-family:'Montserrat',sans-serif;font-size:.66rem;
+    letter-spacing:.24em;text-transform:uppercase;font-weight:700;
+    color:var(--parchment);border-bottom:3px double var(--accent);
+    padding-bottom:.5rem;margin-bottom:1.2rem;
   }
-  .about-quote {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 2.5vw, 2.4rem);
-    font-style: italic; line-height: 1.35; color: var(--cream);
-    border-left: 4px solid var(--gold); padding-left: 2rem;
+  .bio{background:var(--paper);border:1px solid var(--line);padding:1.6rem;text-align:center;}
+  .bio .avatar{
+    width:84px;height:84px;border-radius:50%;margin:0 auto 1rem;
+    background:radial-gradient(circle at 35% 30%,var(--accent),var(--accent-soft));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-weight:900;font-size:2rem;color:var(--ink);
   }
-  .about-text p {
-    color: var(--smoke); margin-bottom: 1.2rem; font-size: 1.1rem;
+  .bio h4{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:.5rem;color:var(--cream);}
+  .bio p{font-size:.92rem;color:var(--soft);font-style:italic;margin-bottom:1rem;}
+  .bio .bio-social{display:flex;justify-content:center;gap:1rem;}
+  .bio .bio-social a{
+    font-family:'Montserrat',sans-serif;font-size:.62rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--accent);transition:opacity .25s;
   }
-  .about-text p strong { color: var(--parchment); font-weight: 600; }
-  .stats-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1px; margin-top: 3rem;
-    background: rgba(125,140,255,0.15);
-  }
-  .stat { background: var(--ash); padding: 1.5rem; text-align: center; }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem; font-weight: 700; color: var(--gold); display: block;
-  }
-  .stat-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--smoke);
+  .bio .bio-social a:hover{opacity:.6;}
+
+  .w-list{list-style:none;}
+  .w-list li{border-bottom:1px solid var(--line);padding:.7rem 0;}
+  .w-list li:last-child{border-bottom:none;}
+  .w-list a{display:block;transition:color .25s;}
+  .w-list a:hover{color:var(--accent);}
+  .w-list .t{font-family:'Playfair Display',serif;font-size:1.02rem;line-height:1.25;color:var(--cream);}
+  .w-list .m{
+    font-family:'Montserrat',sans-serif;font-size:.58rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--accent);opacity:.75;margin-top:.2rem;display:block;
   }
 
-  /* HİZMETLER */
-  .services { background: var(--ink); padding: 7rem 4rem; }
-  .section-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1rem;
-    display: flex; align-items: center; gap: 1rem;
+  .newsletter{background:var(--panel);color:var(--cream);padding:1.8rem 1.6rem;border:1px solid var(--line);}
+  .newsletter .w-head{color:var(--parchment);}
+  .newsletter p{font-size:.9rem;color:var(--soft);font-style:italic;margin-bottom:1.1rem;}
+  .newsletter .field{display:flex;flex-direction:column;gap:.6rem;}
+  .newsletter input{
+    padding:.7rem .9rem;border:1px solid var(--line);
+    background:var(--ink);color:var(--parchment);font-family:'Lora',serif;font-size:.9rem;
   }
-  .section-label::before {
-    content: ''; display: block; width: 30px; height: 1px; background: var(--gold);
+  .newsletter input::placeholder{color:var(--soft);}
+  .newsletter button{
+    background:var(--accent);color:var(--ink);border:none;cursor:pointer;
+    font-family:'Montserrat',sans-serif;font-size:.66rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;padding:.75rem;transition:background .25s;
   }
-  .services-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; line-height: 1.1;
-    margin-bottom: 3.5rem;
-  }
-  .services-title em { font-style: italic; color: var(--gold); }
-  .services-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px; background: rgba(125,140,255,0.1);
-  }
-  .service-card {
-    background: var(--ash); padding: 2.5rem 2rem;
-    transition: background 0.3s; position: relative; overflow: hidden;
-  }
-  .service-card::before {
-    content: ''; position: absolute; top: 0; left: 0;
-    width: 3px; height: 0; background: var(--gold);
-    transition: height 0.4s ease;
-  }
-  .service-card:hover::before { height: 100%; }
-  .service-card:hover { background: #1e2135; }
-  .service-num {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold);
-    margin-bottom: 1.2rem; display: block;
-  }
-  .service-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem; font-weight: 700; color: var(--cream);
-    margin-bottom: 0.5rem; line-height: 1.3;
-  }
-  .service-subtitle {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--gold); opacity: 0.7; margin-bottom: 1rem;
-  }
-  .service-list {
-    list-style: none; margin-top: 1rem;
-  }
-  .service-list li {
-    color: var(--smoke); font-size: 0.95rem; padding: 0.3rem 0;
-    border-bottom: 1px solid rgba(125,140,255,0.08);
-    display: flex; align-items: flex-start; gap: 0.6rem;
-  }
-  .service-list li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+  .newsletter button:hover{background:var(--cream);}
 
-  /* İLETİŞİM / CTA */
-  .cta-section {
-    background: linear-gradient(135deg, #0a0d24 0%, var(--ink) 100%);
-    text-align: center; padding: 7rem 4rem;
-    position: relative; overflow: hidden;
+  /* CONTACT */
+  .contact{
+    background:linear-gradient(135deg,#0a0d24,var(--ink));
+    border-top:3px double var(--accent);border-bottom:1px solid var(--line);
+    padding:4rem 1.5rem;text-align:center;
   }
-  .cta-section::before {
-    content: 'V';
-    position: absolute; font-family: 'Playfair Display', serif;
-    font-size: 40rem; font-weight: 900; font-style: italic;
-    color: rgba(125,140,255,0.04);
-    top: 50%; left: 50%; transform: translate(-50%, -50%);
-    pointer-events: none; user-select: none;
+  .contact .kicker{
+    font-family:'Montserrat',sans-serif;font-size:.64rem;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;
   }
-  .cta-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
-  .cta-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900;
-    margin-bottom: 1rem; line-height: 1.1;
+  .contact h2{
+    font-family:'Playfair Display',serif;font-weight:900;
+    font-size:clamp(1.9rem,4vw,3rem);line-height:1.1;margin-bottom:.8rem;color:var(--cream);
   }
-  .cta-title em { font-style: italic; color: var(--gold); }
-  .cta-text {
-    color: var(--smoke); font-style: italic;
-    margin-bottom: 2.5rem; font-size: 1.1rem;
+  .contact h2 em{font-style:italic;color:var(--accent);}
+  .contact .lede{color:var(--soft);font-style:italic;max-width:560px;margin:0 auto 2.4rem;}
+  .contact-grid{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;
+    max-width:760px;margin:0 auto 1.8rem;
   }
-  .cta-links {
-    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-    margin-bottom: 2rem;
+  .contact-card{
+    flex:1;min-width:150px;max-width:180px;
+    border:1px solid var(--line);padding:1.6rem 1rem;transition:all .25s;
   }
-  .cta-card {
-    border: 1px solid rgba(125,140,255,0.2);
-    padding: 1.8rem 2rem; flex: 1;
-    min-width: 160px; max-width: 200px;
-    transition: all 0.3s; text-decoration: none;
-    color: inherit; display: block; text-align: center;
+  .contact-card:hover{border-color:var(--accent);transform:translateY(-3px);background:rgba(125,140,255,.06);}
+  .contact-card .ic{font-size:1.5rem;margin-bottom:.6rem;display:block;}
+  .contact-card .ct{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--cream);}
+  .contact-card .cd{font-size:.8rem;color:var(--soft);font-style:italic;margin-top:.2rem;}
+  .contact .note{
+    font-family:'Montserrat',sans-serif;font-size:.74rem;letter-spacing:.04em;color:var(--soft);
   }
-  .cta-card:hover {
-    border-color: var(--gold);
-    background: rgba(125,140,255,0.06);
-    transform: translateY(-4px);
-  }
-  .cta-card-icon { font-size: 1.6rem; margin-bottom: 0.7rem; display: block; }
-  .cta-card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem; font-weight: 700; color: var(--cream); margin-bottom: 0.25rem;
-  }
-  .cta-card-desc { font-size: 0.8rem; color: var(--smoke); font-style: italic; }
-  .cta-email {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem; letter-spacing: 0.1em; color: var(--smoke);
-    margin-top: 1.5rem;
-  }
-  .cta-email a { color: var(--gold); text-decoration: none; }
-  .cta-email a:hover { text-decoration: underline; }
+  .contact .note strong{color:var(--parchment);}
 
   /* FOOTER */
-  footer {
-    background: #03040a; padding: 4rem 4rem 2rem;
-    border-top: 1px solid rgba(125,140,255,0.1);
+  footer{background:#03040a;color:var(--soft);padding:3rem 1.5rem 2rem;border-top:1px solid var(--line);}
+  .foot-grid{
+    max-width:1180px;margin:0 auto;
+    display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:3rem;margin-bottom:2.4rem;
   }
-  .footer-top {
-    display: grid; grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 4rem; margin-bottom: 3rem;
+  .foot-brand h3{font-family:'Playfair Display',serif;font-weight:900;font-size:1.6rem;color:var(--accent);margin-bottom:.8rem;}
+  .foot-brand p{font-size:.92rem;font-style:italic;line-height:1.6;}
+  .foot-col h5{
+    font-family:'Montserrat',sans-serif;font-size:.6rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:1rem;
   }
-  .footer-brand .nav-logo { font-size: 1.6rem; display: block; margin-bottom: 1rem; }
-  .footer-brand p { color: var(--smoke); font-style: italic; font-size: 0.95rem; line-height: 1.6; }
-  .footer-col h4 {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1.2rem;
+  .foot-col ul{list-style:none;}
+  .foot-col ul li{margin-bottom:.55rem;}
+  .foot-col ul a{font-size:.94rem;transition:color .25s;}
+  .foot-col ul a:hover{color:var(--accent);}
+  .foot-bottom{
+    max-width:1180px;margin:0 auto;border-top:1px solid var(--line);
+    padding-top:1.4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+    font-family:'Montserrat',sans-serif;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7;
   }
-  .footer-col ul { list-style: none; }
-  .footer-col ul li { margin-bottom: 0.6rem; }
-  .footer-col ul li a {
-    color: var(--smoke); text-decoration: none; font-size: 0.95rem; transition: color 0.3s;
-  }
-  .footer-col ul li a:hover { color: var(--gold); }
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .footer-bottom p {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.6rem; letter-spacing: 0.1em; color: var(--smoke); opacity: 0.5;
-  }
-  .social-links { display: flex; gap: 1.2rem; }
-  .social-links a {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--smoke); text-decoration: none; transition: color 0.3s;
-  }
-  .social-links a:hover { color: var(--gold); }
+  .foot-bottom .s{display:flex;gap:1.2rem;}
+  .foot-bottom .s a:hover{color:var(--accent);}
 
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes slowFloat {
-    0%, 100% { transform: translate(-50%, -50%) rotate(-3deg); }
-    50% { transform: translate(-50%, -52%) rotate(-1deg); }
-  }
-  @keyframes scrollPulse {
-    0%, 100% { width: 40px; opacity: 0.5; }
-    50% { width: 60px; opacity: 1; }
-  }
-  .reveal {
-    opacity: 0; transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* Responsive */
-  @media (max-width: 900px) {
-    nav { padding: 1.2rem 1.5rem; }
-    .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 8rem 1.5rem 4rem; }
-    .hero-right { height: 300px; }
-    .hero-scroll { left: 1.5rem; }
-    .about { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
-    .services { padding: 5rem 1.5rem; }
-    .services-grid { grid-template-columns: 1fr; }
-    .cta-section { padding: 5rem 1.5rem; }
-    .footer-top { grid-template-columns: 1fr; gap: 2rem; }
-    footer { padding: 3rem 1.5rem 2rem; }
+  @media(max-width:880px){
+    .topbar{padding:.55rem 1rem;font-size:.62rem;}
+    .topbar .date{display:none;}
+    nav.menu a{padding:.8rem .8rem;font-size:.64rem;letter-spacing:.1em;}
+    .wrap{grid-template-columns:1fr;gap:0;padding:2rem 1rem 3rem;}
+    aside{margin-top:1rem;}
+    .article{grid-template-columns:1fr;gap:.6rem;}
+    .article .num{font-size:2rem;}
+    .foot-grid{grid-template-columns:1fr;gap:2rem;}
+    .lead-figure::after{font-size:14rem;}
   }
 </style>
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+<!-- TOP BAR -->
+<div class="topbar">
+  <span class="date">İstanbul · Kariyer & Marka Atölyesi</span>
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/volkan-kahyalar/" target="_blank">LinkedIn</a>
+    <a href="https://volkankahyalar.substack.com" target="_blank">Substack</a>
+    <a href="mailto:volkan@volkankahyalar.com">E-Posta</a>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="kicker">Yeni Nesil Kariyer & Lider Marka Koçu</div>
+  <h1>Volkan Kahyalar</h1>
+  <p class="tagline">"Geleceğe imzanızı taşır."</p>
+</header>
 
 <!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Volkan Kahyalar</a>
-  <ul class="nav-links">
+<nav class="menu">
+  <ul>
+    <li><a href="#">Ana Sayfa</a></li>
+    <li><a href="#hakkinda">Hakkımda</a></li>
     <li><a href="#hizmetler">Hizmetler</a></li>
-    <li><a href="#hakkinda">Hakkında</a></li>
     <li><a href="https://volkankahyalar.com/kitap-dedektifiyiz/" target="_blank">Kitap Dedektifiyiz</a></li>
+    <li><a href="https://volkankahyalar.substack.com" target="_blank">Substack</a></li>
     <li><a href="#iletisim">İletişim</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <p class="hero-eyebrow">Yeni Nesil Kariyer & Lider Marka Koçu</p>
-    <h1 class="hero-title">
-      Geleceğe<br>
-      <em>İmzanızı</em><br>
-      Taşır
-    </h1>
-    <p class="hero-subtitle">20 yıllık gazetecilik deneyimiyle kariyer danışmanlığı, kişisel marka yönetimi ve kurumsal strateji.</p>
-    <div class="hero-cta">
-      <a href="#iletisim" class="btn-primary">
-        <span>→ Danışmanlık Al</span>
-      </a>
-      <a href="#hizmetler" class="btn-secondary">
-        Hizmetleri Gör
-      </a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-visual"></div>
-    <div class="hero-lines"></div>
-    <div class="hero-photo">
-      <!-- DEĞİŞTİR: volkan.jpg adıyla yükle -->
-      <img src="volkan.jpg" alt="Volkan Kahyalar">
-    </div>
-  </div>
-  <div class="hero-scroll">
-    <span class="scroll-line"></span>
-    Devam Et 👇
-  </div>
-</section>
+<!-- BODY -->
+<div class="wrap">
 
-<!-- HAKKINDA -->
-<section class="about reveal" id="hakkinda">
-  <div class="about-quote">
-    "Her Kariyer Bir Hikayedir,<br>Her Hikaye Bir Potansiyeldir."
-  </div>
-  <div class="about-text">
-    <div class="section-label">Hakkında</div>
-    <p><strong>Volkan Kahyalar</strong>; 20 yıllık gazetecilik ve saha deneyimini stratejik marka yönetimiyle birleştiren bir <strong>Yeni Nesil Kariyer Koçudur.</strong></p>
-    <p>Klasik İK süreçlerinin aksine, danışanlarına <strong>hikaye anlatıcılığı (storytelling)</strong> ve <strong>veri odaklı strateji</strong> ile hizmet verir.</p>
-    <p>Sadece teorik tavsiyeler değil — sonuç odaklı stratejiler.</p>
-    <div class="stats-grid">
-      <div class="stat">
-        <span class="stat-num">20+</span>
-        <span class="stat-label">Yıl Deneyim</span>
+  <!-- MAIN COLUMN -->
+  <main>
+
+    <!-- LEAD ARTICLE -->
+    <article class="lead">
+      <div class="lead-figure">
+        <span class="cat">Manşet</span>
       </div>
-      <div class="stat">
-        <span class="stat-num">3</span>
-        <span class="stat-label">Hizmet Alanı</span>
+      <div class="lead-body">
+        <div class="byline">Volkan Kahyalar — Editörün Notu</div>
+        <h2>Her kariyer bir hikâyedir,<br><em>her hikâye bir potansiyeldir.</em></h2>
+        <p>20 yıllık gazetecilik ve saha deneyimini stratejik marka yönetimiyle birleştiren bir yaklaşım. Klasik İK süreçlerinin aksine; hikâye anlatıcılığı ve veri odaklı strateji ile çalışıyorum.</p>
+        <p>Sadece teorik tavsiyeler değil — sonuç odaklı stratejiler. Kariyeriniz veya entelektüel markanız için bir yol haritası çıkaralım.</p>
+        <a href="#hizmetler" class="read-more">Hizmetleri Keşfedin →</a>
       </div>
-      <div class="stat">
-        <span class="stat-num">∞</span>
-        <span class="stat-label">Potansiyel</span>
+    </article>
+
+    <!-- HİZMETLER -->
+    <div class="section-head" id="hizmetler"><span>Hizmet Alanlarım</span><span>Dosya</span></div>
+
+    <article class="article">
+      <div class="num">01</div>
+      <div>
+        <div class="cat">White-Collar · LinkedIn</div>
+        <h3><a href="#iletisim">Profesyonel Marka & LinkedIn Yönetimi</a></h3>
+        <p class="excerpt">Kurumsal hayatta sıkışıp kalanlar veya seviye atlamak isteyenler için.</p>
+        <ul>
+          <li>LinkedIn profil optimizasyonu (algoritma dostu)</li>
+          <li>Stratejik ağ kurma (networking) taktikleri</li>
+          <li>Kişisel marka konumlandırması</li>
+        </ul>
+        <a href="#iletisim" class="read-more">Danışmanlık Al →</a>
+      </div>
+    </article>
+
+    <article class="article">
+      <div class="num">02</div>
+      <div>
+        <div class="cat">Blue-Sky · Akademi</div>
+        <h3><a href="#iletisim">Akademik & Entelektüel Görünürlük</a></h3>
+        <p class="excerpt">Akademisyenler ve uzmanlar için; bilginizi geniş kitlelere ulaştırma sanatı.</p>
+        <ul>
+          <li>Akademik dilden popüler medya diline geçiş</li>
+          <li>Substack & e-bülten stratejileri</li>
+          <li>"Uzman" kimliğini dijitalde parlatma</li>
+        </ul>
+        <a href="#iletisim" class="read-more">Danışmanlık Al →</a>
+      </div>
+    </article>
+
+    <article class="article">
+      <div class="num">03</div>
+      <div>
+        <div class="cat">Kariyer Dönüşümü · ATS</div>
+        <h3><a href="#iletisim">İş Değiştirme & ATS Danışmanlığı</a></h3>
+        <p class="excerpt">Başvurularınızın neden reddedildiğini öğrenin ve rotanızı yeniden çizin.</p>
+        <ul>
+          <li>ATS uyumlu CV hazırlama</li>
+          <li>Mülakat simülasyonları & hikâyeleştirme</li>
+          <li>Kariyer rotasını yeniden çizme</li>
+        </ul>
+        <a href="#iletisim" class="read-more">Danışmanlık Al →</a>
+      </div>
+    </article>
+
+    <!-- HAKKINDA -->
+    <div class="section-head" id="hakkinda"><span>Hakkımda</span><span>Künye</span></div>
+    <div class="about-block">
+      <div class="pull">"Klasik İK süreçlerinin aksine; danışanlarıma hikâye anlatıcılığı ve veri odaklı strateji ile hizmet veririm."</div>
+      <p><strong>Volkan Kahyalar</strong>; 20 yıllık gazetecilik ve saha deneyimini stratejik marka yönetimiyle birleştiren bir <strong>Yeni Nesil Kariyer Koçudur.</strong></p>
+      <p>Yıllarca kelimelerle hikâye kurdum; şimdi o ustalığı kariyerinizin hikâyesine taşıyorum. Sadece teorik tavsiyeler değil — sonuç odaklı stratejiler.</p>
+      <div class="about-stats">
+        <div><span class="n">20+</span><span class="l">Yıl Deneyim</span></div>
+        <div><span class="n">3</span><span class="l">Hizmet Alanı</span></div>
+        <div><span class="n">∞</span><span class="l">Potansiyel</span></div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- HİZMETLER -->
-<section class="services reveal" id="hizmetler">
-  <div class="section-label">Ne Sunuyorum</div>
-  <h2 class="services-title">Hizmet<br><em>Alanlarım</em></h2>
+  </main>
 
-  <div class="services-grid">
+  <!-- SIDEBAR -->
+  <aside>
 
-    <!-- HİZMET 1 -->
-    <div class="service-card">
-      <span class="service-num">01</span>
-      <div class="service-title">Profesyonel Marka & LinkedIn Yönetimi</div>
-      <div class="service-subtitle">White-Collar</div>
-      <p style="color:var(--smoke);font-size:0.95rem;margin-bottom:1rem;">Kurumsal hayatta sıkışıp kalanlar veya seviye atlamak isteyenler için.</p>
-      <ul class="service-list">
-        <li>LinkedIn profil optimizasyonu (Algoritma dostu)</li>
-        <li>Stratejik ağ kurma (Networking) taktikleri</li>
-        <li>Kişisel marka konumlandırması</li>
+    <div class="widget">
+      <div class="bio">
+        <div class="avatar">VK</div>
+        <h4>Volkan Kahyalar</h4>
+        <p>20 yıllık gazetecilik deneyimiyle kariyer danışmanlığı ve kişisel marka yönetimi.</p>
+        <div class="bio-social">
+          <a href="https://www.linkedin.com/in/volkan-kahyalar/" target="_blank">LinkedIn</a>
+          <a href="https://volkankahyalar.substack.com" target="_blank">Substack</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="widget">
+      <div class="w-head">Hizmetler</div>
+      <ul class="w-list">
+        <li><a href="#hizmetler"><span class="t">Profesyonel Marka & LinkedIn Yönetimi</span><span class="m">White-Collar</span></a></li>
+        <li><a href="#hizmetler"><span class="t">Akademik & Entelektüel Görünürlük</span><span class="m">Blue-Sky</span></a></li>
+        <li><a href="#hizmetler"><span class="t">İş Değiştirme & ATS Danışmanlığı</span><span class="m">Kariyer Dönüşümü</span></a></li>
       </ul>
     </div>
 
-    <!-- HİZMET 2 -->
-    <div class="service-card">
-      <span class="service-num">02</span>
-      <div class="service-title">Akademik & Entelektüel Görünürlük</div>
-      <div class="service-subtitle">Blue-Sky</div>
-      <p style="color:var(--smoke);font-size:0.95rem;margin-bottom:1rem;">Akademisyenler ve uzmanlar için; bilginizi geniş kitlelere ulaştırma sanatı.</p>
-      <ul class="service-list">
-        <li>Akademik dilden popüler medya diline geçiş</li>
-        <li>Substack & E-bülten stratejileri</li>
-        <li>"Uzman" kimliğini dijitalde parlatma</li>
+    <div class="widget">
+      <div class="w-head">Nereden Ulaşılır</div>
+      <ul class="w-list">
+        <li><a href="https://bionluk.com/volkankahyalar" target="_blank"><span class="t">Bionluk</span><span class="m">Hizmet Satın Al</span></a></li>
+        <li><a href="https://armut.com/hizmetveren/volkan-kahyalar-istanbul-sisli-meslek-danismani_18224214" target="_blank"><span class="t">Armut</span><span class="m">Teklif Al</span></a></li>
+        <li><a href="https://volkankahyalar.com/kitap-dedektifiyiz/" target="_blank"><span class="t">Kitap Dedektifiyiz</span><span class="m">Proje</span></a></li>
       </ul>
     </div>
 
-    <!-- HİZMET 3 -->
-    <div class="service-card">
-      <span class="service-num">03</span>
-      <div class="service-title">İş Değiştirme & ATS Danışmanlığı</div>
-      <div class="service-subtitle">Kariyer Dönüşümü</div>
-      <p style="color:var(--smoke);font-size:0.95rem;margin-bottom:1rem;">Başvurularınızın neden reddedildiğini öğrenin ve rotanızı yeniden çizin.</p>
-      <ul class="service-list">
-        <li>ATS uyumlu CV hazırlama</li>
-        <li>Mülakat simülasyonları & hikayeleştirme</li>
-        <li>Kariyer rotasını yeniden çizme</li>
-      </ul>
+    <div class="widget newsletter">
+      <div class="w-head">Bültene Abone Olun</div>
+      <p>Substack bültenime abone olarak son yazılarımdan ve stratejilerimden haberdar olun.</p>
+      <div class="field">
+        <input type="email" placeholder="E-posta adresiniz" aria-label="E-posta">
+        <button onclick="window.open('https://volkankahyalar.substack.com','_blank')">Abone Ol</button>
+      </div>
     </div>
 
-  </div>
-</section>
+  </aside>
+
+</div>
 
 <!-- İLETİŞİM -->
-<section class="cta-section reveal" id="iletisim">
-  <div class="cta-inner">
-    <div class="section-label" style="justify-content:center;">İletişim</div>
-    <h2 class="cta-title">Yarına Kalmayın,<br><em>Bugünden Başlayalım</em></h2>
-    <p class="cta-text">Kariyeriniz veya akademik markanız için beklemek, fırsat maliyetini artırır. Size özel bir yol haritası için hemen ulaşın.</p>
-
-    <div class="cta-links">
-      <a href="mailto:volkan@volkankahyalar.com" class="cta-card">
-        <span class="cta-card-icon">✉</span>
-        <div class="cta-card-title">E-Posta</div>
-        <div class="cta-card-desc">volkan@volkankahyalar.com</div>
-      </a>
-      <a href="https://www.linkedin.com/in/volkan-kahyalar/" target="_blank" class="cta-card">
-        <span class="cta-card-icon">in</span>
-        <div class="cta-card-title">LinkedIn</div>
-        <div class="cta-card-desc">Doğrudan mesaj</div>
-      </a>
-      <a href="https://bionluk.com/volkankahyalar" target="_blank" class="cta-card">
-        <span class="cta-card-icon">🎯</span>
-        <div class="cta-card-title">Bionluk</div>
-        <div class="cta-card-desc">Hizmet satın al</div>
-      </a>
-      <a href="https://armut.com/hizmetveren/volkan-kahyalar-istanbul-sisli-meslek-danismani_18224214" target="_blank" class="cta-card">
-        <span class="cta-card-icon">🔧</span>
-        <div class="cta-card-title">Armut</div>
-        <div class="cta-card-desc">Teklif al</div>
-      </a>
-    </div>
-
-    <p class="cta-email">Mesajınıza <strong style="color:var(--parchment);">"Web sitenizden ulaşıyorum"</strong> notunu düşerseniz öncelik tanıyacağım.</p>
+<section class="contact" id="iletisim">
+  <div class="kicker">İletişim</div>
+  <h2>Yarına kalmayın,<br><em>bugünden başlayalım.</em></h2>
+  <p class="lede">Kariyeriniz veya akademik markanız için beklemek, fırsat maliyetini artırır. Size özel bir yol haritası için hemen ulaşın.</p>
+  <div class="contact-grid">
+    <a href="mailto:volkan@volkankahyalar.com" class="contact-card">
+      <span class="ic">✉</span>
+      <div class="ct">E-Posta</div>
+      <div class="cd">volkan@volkankahyalar.com</div>
+    </a>
+    <a href="https://www.linkedin.com/in/volkan-kahyalar/" target="_blank" class="contact-card">
+      <span class="ic">in</span>
+      <div class="ct">LinkedIn</div>
+      <div class="cd">Doğrudan mesaj</div>
+    </a>
+    <a href="https://bionluk.com/volkankahyalar" target="_blank" class="contact-card">
+      <span class="ic">🎯</span>
+      <div class="ct">Bionluk</div>
+      <div class="cd">Hizmet satın al</div>
+    </a>
+    <a href="https://armut.com/hizmetveren/volkan-kahyalar-istanbul-sisli-meslek-danismani_18224214" target="_blank" class="contact-card">
+      <span class="ic">🔧</span>
+      <div class="ct">Armut</div>
+      <div class="cd">Teklif al</div>
+    </a>
   </div>
+  <p class="note">Mesajınıza <strong>"Web sitenizden ulaşıyorum"</strong> notunu düşerseniz öncelik tanıyacağım.</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a href="#" class="nav-logo">Volkan Kahyalar</a>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <h3>Volkan Kahyalar</h3>
       <p>Yeni Nesil Kariyer & Lider Marka Koçu. 20 yıllık gazetecilik deneyimiyle kariyer danışmanlığı ve kişisel marka yönetimi.</p>
     </div>
-    <div class="footer-col">
-      <h4>Hizmetler</h4>
+    <div class="foot-col">
+      <h5>Hizmetler</h5>
       <ul>
         <li><a href="#hizmetler">LinkedIn & Marka Yönetimi</a></li>
         <li><a href="#hizmetler">Akademik Görünürlük</a></li>
         <li><a href="#hizmetler">Kariyer Dönüşümü</a></li>
       </ul>
     </div>
-    <div class="footer-col">
-      <h4>Bağlantı</h4>
+    <div class="foot-col">
+      <h5>Bağlantı</h5>
       <ul>
         <li><a href="https://www.linkedin.com/in/volkan-kahyalar/" target="_blank">LinkedIn</a></li>
         <li><a href="https://volkankahyalar.substack.com" target="_blank">Substack</a></li>
@@ -582,9 +543,9 @@
       </ul>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>© 2026 Volkan Kahyalar — Tüm hakları saklıdır.</p>
-    <div class="social-links">
+  <div class="foot-bottom">
+    <span>© 2026 Volkan Kahyalar — Tüm hakları saklıdır.</span>
+    <div class="s">
       <a href="https://www.linkedin.com/in/volkan-kahyalar/" target="_blank">LinkedIn</a>
       <a href="https://volkankahyalar.substack.com" target="_blank">Substack</a>
     </div>
@@ -592,48 +553,10 @@
 </footer>
 
 <script>
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
-  });
-
-  function animateRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
-
-  document.querySelectorAll('a, button, .service-card, .cta-card').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
-      ring.style.transform = 'translate(-50%,-50%) scale(1.5)';
-      ring.style.borderColor = 'rgba(125,140,255,0.8)';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-      ring.style.transform = 'translate(-50%,-50%) scale(1)';
-      ring.style.borderColor = 'rgba(125,140,255,0.4)';
-    });
-  });
-
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  reveals.forEach(r => observer.observe(r));
-
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
     });
   });
 </script>
