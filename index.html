@@ -91,9 +91,10 @@
     width:1px;height:14px;background:var(--line);
   }
 
-  /* LAYOUT — tek kolon, ortalı */
+  /* LAYOUT */
   .wrap{
-    max-width:760px;margin:0 auto;padding:3rem 1.5rem 4rem;
+    max-width:1180px;margin:0 auto;padding:3rem 1.5rem 4rem;
+    display:grid;grid-template-columns:1fr 320px;gap:3.5rem;
   }
 
   /* LEAD / MANŞET */
@@ -135,11 +136,31 @@
   }
   .read-more:hover{opacity:.65;}
 
+  /* SIDEBAR — YAZILARIM (sticky) */
+  aside{position:sticky;top:90px;align-self:start;}
+  aside .w-head{
+    font-family:'Montserrat',sans-serif;font-size:.66rem;
+    letter-spacing:.24em;text-transform:uppercase;font-weight:700;
+    color:var(--parchment);border-bottom:3px double var(--accent);
+    padding-bottom:.5rem;margin-bottom:1.2rem;
+  }
+  .w-list{list-style:none;}
+  .w-list li{border-bottom:1px solid var(--line);padding:.7rem 0;}
+  .w-list li:last-child{border-bottom:none;}
+  .w-list a{display:block;transition:color .25s;}
+  .w-list a:hover{color:var(--accent);}
+  .w-list .t{font-family:'Playfair Display',serif;font-size:1.02rem;line-height:1.25;color:var(--cream);}
+  .w-list .m{
+    font-family:'Montserrat',sans-serif;font-size:.58rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--accent);opacity:.75;margin-top:.2rem;display:block;
+  }
+
   @media(max-width:880px){
     .topbar{padding:.55rem 1rem;font-size:.62rem;}
     .topbar .date{display:none;}
     nav.menu a{padding:.8rem .8rem;font-size:.64rem;letter-spacing:.1em;}
-    .wrap{padding:2rem 1rem 3rem;}
+    .wrap{grid-template-columns:1fr;gap:2rem;padding:2rem 1rem 3rem;}
+    aside{position:static;}
   }
 </style>
 </head>
@@ -175,19 +196,33 @@
 <div class="wrap">
 
   <!-- MANŞET -->
-  <article class="lead">
-    <div class="lead-figure">
-      <img src="https://static.bianet.org/haber/2026/03/03/beraat-yetmedi-gocnette-tehdit-olarak-kaldi.jpg" alt="Beraat yetmedi: GöçNet'te tehdit olarak kaldı">
-      <span class="cat">Manşet · Bianet</span>
-    </div>
-    <div class="lead-body">
-      <div class="byline">Volkan Kahyalar — Dünya · 3 Mart 2026</div>
-      <h2>Beraat yetmedi:<br><em>GöçNet'te "tehdit" olarak kaldı</em></h2>
-      <p>Devletlerin ve şirketlerin "güvenli" dediği verilerin akıbeti daha ürkütücü. Açık Kaynak İstihbaratı (OSINT) taramalarında, sığınmacılara ait biyometrik verilerin dark web'de "Tam Kimlik Paketi" adıyla 30 dolara satıldığı görülüyor.</p>
-      <p>Beraat eden bir sığınmacının, idari veri tabanında nasıl süresiz bir "tehdit kodu" olarak kaldığının izini süren saha incelemesi.</p>
-      <a href="https://bianet.org/haber/beraat-yetmedi-gocnette-tehdit-olarak-kaldi-317272" target="_blank" class="read-more">Devamını Oku →</a>
-    </div>
-  </article>
+  <main>
+    <article class="lead">
+      <div class="lead-figure">
+        <img src="https://static.bianet.org/haber/2026/03/03/beraat-yetmedi-gocnette-tehdit-olarak-kaldi.jpg" alt="Beraat yetmedi: GöçNet'te tehdit olarak kaldı">
+        <span class="cat">Manşet · Bianet</span>
+      </div>
+      <div class="lead-body">
+        <div class="byline">Volkan Kahyalar — Dünya · 3 Mart 2026</div>
+        <h2>Beraat yetmedi:<br><em>GöçNet'te "tehdit" olarak kaldı</em></h2>
+        <p>Devletlerin ve şirketlerin "güvenli" dediği verilerin akıbeti daha ürkütücü. Açık Kaynak İstihbaratı (OSINT) taramalarında, sığınmacılara ait biyometrik verilerin dark web'de "Tam Kimlik Paketi" adıyla 30 dolara satıldığı görülüyor.</p>
+        <p>Beraat eden bir sığınmacının, idari veri tabanında nasıl süresiz bir "tehdit kodu" olarak kaldığının izini süren saha incelemesi.</p>
+        <a href="https://bianet.org/haber/beraat-yetmedi-gocnette-tehdit-olarak-kaldi-317272" target="_blank" class="read-more">Devamını Oku →</a>
+      </div>
+    </article>
+  </main>
+
+  <!-- YAZILARIM -->
+  <aside>
+    <div class="w-head">Yazılarım</div>
+    <ul class="w-list">
+      <li><a href="https://bianet.org/haber/beraat-yetmedi-gocnette-tehdit-olarak-kaldi-317272" target="_blank"><span class="t">Beraat yetmedi: GöçNet'te "tehdit" olarak kaldı</span><span class="m">Bianet · 3 Mart 2026</span></a></li>
+      <li><a href="https://bianet.org/haber/sosyal-medyanin-2025-karnesi-dijital-sinir-ihlalleri-ve-toplumsal-ofke-cagi-315038" target="_blank"><span class="t">Sosyal medyanın 2025 karnesi: Dijital sınır ihlalleri ve toplumsal öfke çağı</span><span class="m">Bianet · 31 Aralık 2025</span></a></li>
+      <!-- Yeni yazı eklemek için bu kalıbı kopyala:
+      <li><a href="YAZI_LINKI" target="_blank"><span class="t">YAZI BAŞLIĞI</span><span class="m">YAYIN · TARİH</span></a></li>
+      -->
+    </ul>
+  </aside>
 
 </div>
 
