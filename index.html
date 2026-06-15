@@ -97,46 +97,69 @@
     display:grid;grid-template-columns:1fr 320px;gap:3.5rem;
   }
 
-  /* LEAD / MANŞET */
-  .lead{
+  /* MAKALE — HAM METİN */
+  .article-full{
     background:var(--paper);border:1px solid var(--line);
   }
-  .lead-figure{
+  .article-full .af-figure{
     height:340px;position:relative;overflow:hidden;
     display:flex;align-items:flex-end;
     background:linear-gradient(135deg,#0a0d2a,var(--ink));
   }
-  .lead-figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-  .lead-figure::before{
+  .article-full .af-figure img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  }
+  .article-full .af-figure::before{
     content:'';position:absolute;inset:0;z-index:1;
     background:linear-gradient(to top,rgba(6,7,15,.85),rgba(6,7,15,.1) 55%,transparent);
   }
-  .lead-figure .cat{
+  .article-full .af-figure .cat{
     position:relative;z-index:2;margin:1.4rem;
     font-family:'Montserrat',sans-serif;font-size:.62rem;
     letter-spacing:.25em;text-transform:uppercase;
     background:var(--accent);color:var(--ink);padding:.4rem .9rem;font-weight:700;
   }
-  .lead-body{padding:2.2rem 2.4rem 2.4rem;}
-  .lead-body h2{
-    font-family:'Playfair Display',serif;font-weight:900;
-    font-size:clamp(1.8rem,3.4vw,2.9rem);line-height:1.1;margin-bottom:1rem;color:var(--cream);
-  }
-  .lead-body h2 em{font-style:italic;color:var(--accent);}
-  .lead-body p{color:var(--soft);margin-bottom:1rem;font-size:1.08rem;}
-  .lead-body .byline{
+  .article-full .af-body{padding:2.2rem 2.4rem 2.8rem;}
+
+  .article-full .byline{
     font-family:'Montserrat',sans-serif;font-size:.66rem;letter-spacing:.12em;
     text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;opacity:.8;
   }
-  .read-more{
-    display:inline-block;font-family:'Montserrat',sans-serif;
-    font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
-    color:var(--accent);border-bottom:2px solid var(--accent);
-    padding-bottom:2px;transition:opacity .25s;
+  .article-full h2{
+    font-family:'Playfair Display',serif;font-weight:900;
+    font-size:clamp(1.8rem,3.4vw,2.9rem);line-height:1.1;
+    margin-bottom:1.4rem;color:var(--cream);
   }
-  .read-more:hover{opacity:.65;}
+  .article-full h2 em{font-style:italic;color:var(--accent);}
 
-  /* SIDEBAR — YAZILARIM (sticky) */
+  /* Makale içi bölüm başlıkları */
+  .article-full .section-head{
+    font-family:'Playfair Display',serif;font-weight:700;font-style:italic;
+    font-size:1.22rem;color:var(--accent);
+    margin:2rem 0 .6rem;letter-spacing:.01em;
+  }
+  .article-full p{
+    color:var(--soft);margin-bottom:1.1rem;font-size:1.05rem;line-height:1.85;
+  }
+  .article-full p strong{color:var(--cream);}
+
+  /* Büyük alıntı kutusu */
+  .article-full blockquote{
+    border-left:3px solid var(--accent);
+    margin:1.8rem 0;padding:.9rem 1.4rem;
+    background:rgba(125,140,255,.06);
+    color:var(--cream);font-style:italic;font-size:1.08rem;line-height:1.7;
+  }
+
+  /* Footer notu */
+  .article-full .footer-note{
+    margin-top:2rem;padding-top:1.2rem;
+    border-top:1px solid var(--line);
+    font-family:'Montserrat',sans-serif;font-size:.65rem;
+    letter-spacing:.06em;color:var(--soft);opacity:.7;line-height:1.6;
+  }
+
+  /* SIDEBAR */
   aside{position:sticky;top:90px;align-self:start;}
   aside .w-head{
     font-family:'Montserrat',sans-serif;font-size:.66rem;
@@ -144,6 +167,48 @@
     color:var(--parchment);border-bottom:3px double var(--accent);
     padding-bottom:.5rem;margin-bottom:1.2rem;
   }
+
+  /* BÜLTEN KUTUSU */
+  .newsletter-box{
+    background:var(--panel);
+    border:1px solid var(--accent);
+    padding:1.4rem 1.3rem 1.5rem;
+    margin-bottom:1.8rem;
+  }
+  .newsletter-box .nb-label{
+    font-family:'Montserrat',sans-serif;font-size:.58rem;
+    letter-spacing:.28em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:.5rem;display:block;
+  }
+  .newsletter-box .nb-title{
+    font-family:'Playfair Display',serif;font-weight:700;
+    font-size:1.1rem;line-height:1.25;color:var(--cream);margin-bottom:.6rem;
+  }
+  .newsletter-box .nb-desc{
+    font-family:'Lora',serif;font-size:.88rem;
+    color:var(--soft);line-height:1.55;margin-bottom:1.1rem;
+  }
+  .newsletter-box .nb-btn{
+    display:block;text-align:center;
+    font-family:'Montserrat',sans-serif;font-size:.7rem;
+    letter-spacing:.18em;text-transform:uppercase;font-weight:700;
+    background:var(--accent);color:var(--ink);
+    padding:.7rem 1rem;
+    transition:opacity .25s;
+  }
+  .newsletter-box .nb-btn:hover{opacity:.8;}
+
+  /* İSTEĞE BAĞLI: iframe embed — aktif etmek için display:none kaldır */
+  .newsletter-iframe-wrap{
+    display:none; /* iframe'i görmek istersen bunu kaldır */
+    margin-bottom:1.8rem;
+    border:1px solid var(--line);
+    overflow:hidden;
+  }
+  .newsletter-iframe-wrap iframe{
+    display:block;width:100%;height:320px;border:none;
+  }
+
   .w-list{list-style:none;}
   .w-list li{border-bottom:1px solid var(--line);padding:.7rem 0;}
   .w-list li:last-child{border-bottom:none;}
@@ -161,6 +226,7 @@
     nav.menu a{padding:.8rem .8rem;font-size:.64rem;letter-spacing:.1em;}
     .wrap{grid-template-columns:1fr;gap:2rem;padding:2rem 1rem 3rem;}
     aside{position:static;}
+    .article-full .af-body{padding:1.6rem 1.4rem 2rem;}
   }
 </style>
 </head>
@@ -195,32 +261,109 @@
 <!-- BODY -->
 <div class="wrap">
 
-  <!-- MANŞET -->
+  <!-- MANŞET — HAM METİN -->
   <main>
-    <article class="lead">
-      <div class="lead-figure">
+    <article class="article-full">
+      <div class="af-figure">
         <img src="https://static.bianet.org/haber/2026/03/03/beraat-yetmedi-gocnette-tehdit-olarak-kaldi.jpg" alt="Beraat yetmedi: GöçNet'te tehdit olarak kaldı">
         <span class="cat">Manşet · Bianet</span>
       </div>
-      <div class="lead-body">
+      <div class="af-body">
         <div class="byline">Volkan Kahyalar — Dünya · 3 Mart 2026</div>
         <h2>Beraat yetmedi:<br><em>GöçNet'te "tehdit" olarak kaldı</em></h2>
-        <p>Devletlerin ve şirketlerin "güvenli" dediği verilerin akıbeti daha ürkütücü. Açık Kaynak İstihbaratı (OSINT) taramalarında, sığınmacılara ait biyometrik verilerin dark web'de "Tam Kimlik Paketi" adıyla 30 dolara satıldığı görülüyor.</p>
-        <p>Beraat eden bir sığınmacının, idari veri tabanında nasıl süresiz bir "tehdit kodu" olarak kaldığının izini süren saha incelemesi.</p>
-        <a href="https://bianet.org/haber/beraat-yetmedi-gocnette-tehdit-olarak-kaldi-317272" target="_blank" class="read-more">Devamını Oku →</a>
+
+        <p>Pakistanlı Abbas, Haziran 2024'te kucağında yüksek ateşle yanan çocuğuyla İstanbul Okmeydanı Prof. Dr. Cemil Taşcıoğlu Şehir Hastanesi'nin acil servisine koştuğunda, o gecenin hayatını bir "dijital bir hücreye" dönüştüreceğini bilmiyordu. Sadece çocuğuna bir doktor arıyordu.</p>
+
+        <p>Ancak dil engeli, çocuğun dinmeyen ağlaması ve sıradaki gerginlik, diğer hasta yakınlarıyla sözlü bir tartışmaya dönüştü. Önce güvenlik, sonra hastane polisi devreye girdi. Basit bir "sıra kavgası", Abbas ve eşi için bir adli sicil kaydına dönüştü.</p>
+
+        <p>Türkiye yargısı kararını 9 Nisan 2025'te verdi: Mahkeme heyeti, olayda bir suç unsuru bulmadı. Beraat etti. Abbas <em>(Güvenlik gerekçesiyle isim değiştirildi)</em>, elindeki mahkeme ilamıyla kâbusun bittiğini sanıyordu. Aklanmıştı, ama mahkemeye göre. Göç İdaresi'nin veri tabanı GöçNet'e göre değil.</p>
+
+        <div class="section-head">N-99 nedir?</div>
+
+        <p>Hukuk literatüründe bir karşılığı yok. Ama bürokratik idarede ağır bir kod: <strong>N-99.</strong></p>
+
+        <p>Göç İdaresi veri tabanında (GöçNet), "Interpol Tarafından Aranan Şahıs" veya "Giriş Yasağı" anlamına geliyor. Bu, teknik karşılığı. Pratikte ise "Genel Güvenlik Tehdidi." Yargı denetiminden muaf. Süresiz bir "idari fişleme."</p>
+
+        <p>Mahkeme heyetinin somut delillerle verdiği beraat kararını sistemin "entegrasyon eksikliği" gerekçesiyle tanımaması; basit bir hastane tartışmasını uluslararası bir terör şüphesiyle aynı kefeye koyarak, bireyin hukuki masumiyetini idari bir algoritmanın insafına terk ediyor.</p>
+
+        <div class="section-head">GöçNet kodluyor</div>
+
+        <p>Beraat kararından 7 ay sonra, Kasım 2025'te İstanbul'da; Abbas ve eşi, minibüsle Okmeydanı'ndaki evlerine dönüyordu. Rutin bir GBT (Genel Bilgi Toplama) kontrolüne denk geldiler. Polis memurunun tabletine kimlik bilgileri girildiğinde ekran kırmızıya döndü.</p>
+
+        <p>Ulusal Yargı Ağı (UYAP) ile Göç İdaresi veritabanı (GöçNet) arasındaki entegrasyon kopukluğu, yargıdan "temiz" kâğıdı alan bir kadını, idari sistemde hâlen "Kamu Düzeni Tehdidi" olarak işaretlemeye devam ediyordu.</p>
+
+        <p>Abbas'ın eşi o gün, kucağında çocuğuyla Tuzla'daki Geri Gönderme Merkezi'ne (GGM) götürüldü.</p>
+
+        <blockquote>"Elimde mahkeme kararı var ama sistem beni terörist gibi görüyor. Eşim kucağındaki bebeğiyle parmaklıklar ardında."</blockquote>
+
+        <p>Avrupa Birliği, Türkiye'deki sınır ve göç yönetimi için 2024 yılında tam 398 milyon euro (yaklaşık 14 milyar TL) bütçe ayırdı. Karar metninin ekindeki "Output 6" maddesi, Geri Gönderme Merkezleri'nin işletme giderlerinin ve göçü yöneten teknolojik altyapısının doğrudan AB fonlarıyla finanse edildiğini gösteriyor.</p>
+
+        <p>Yani Abbas'ı mahkeme kararlarına rağmen "riskli" olarak kodlayan o yazılımın da onun gönderildiğine benzer Geri Gönderme Merkezleri'nin de giderleri bu bütçeden karşılanıyor.</p>
+
+        <div class="section-head">Dijital duvarın mühendisleri</div>
+
+        <p>Abbas'ın hikâyesi, sadece bürokratik bir hata değil; Thales, Palantir ve Havelsan gibi teknoloji devlerinin devlet aygıtlarıyla kurduğu "Sınır-Endüstriyel Kompleksi"nin bir sonucu.</p>
+
+        <p>Yine aynı AB fon raporunun "Output 4" maddesi, Türkiye'nin Doğu ve Güneydoğu sınırlarına kurulan termal kameraların, elektro-optik kulelerin ve radar sistemlerinin finansmanını "Sınır Güvenliğini Güçlendirme" başlığı altında garanti altına alıyor.</p>
+
+        <p>Thales'in Sahil Gözetleme Radar Sistemi (SGRS) ve Havelsan-BİYOTEKSAN ortaklığında geliştirilen biyometrik veri sistemleri (parmak izi ve yüz tanıma), mültecileri daha sınıra ulaşmadan birer "veri paketine" dönüştürüyor. Bu sistem, insani bir kriz yönetiminden ziyade, otonom bir "risk puanlama" mekanizması olarak işliyor.</p>
+
+        <div class="section-head">İnsani yardımdan gözetime: Palantir gölgesi</div>
+
+        <p>Sistemin en karanlık yüzü ise "işlev kayması" olarak adlandırılan süreçte ortaya çıkıyor. Abbas'ın eşi, bebeği için gıda yardımı başvurusu yaparken (Kızılay/BM Kart) verdiği biyometrik rızanın aslında küresel bir gözetim ağının parçası olduğundan habersizdi.</p>
+
+        <p>Dünya Gıda Programı (WFP) ile veri madenciliği devi Palantir Technologies arasında 2019'da imzalanan ve günümüzde de aktif olan 45 milyon dolarlık anlaşma, insani yardımın nasıl bir "Gözetim İnsaniyetçiliğine" dönüştüğünü gösteriyor. Privacy International ve The New Humanitarian raporlarına göre; CIA ve askeri istihbaratla geçmişi olan bir şirketin mülteci veri tabanının kalbinde yer alması, Abbas gibi sığınmacıların verilerini "yardım" kılıfı altında "istihbarat" verisine dönüştürüyor.</p>
+
+        <p>WFP her ne kadar verilerin anonim olduğunu savunsa da Abbas için sonuç değişmiyor: Hayatta kalmak için verdiği parmak izi, onu koruması gereken kurumların değil, onu potansiyel bir tehdit olarak algılayan algoritmaların elinde işleniyor.</p>
+
+        <div class="section-head">30 dolara dijital kimlik: dark web pazarı</div>
+
+        <p>Devletlerin ve şirketlerin "güvenli" dediği bu verilerin akıbeti ise daha ürkütücü. Açık Kaynak İstihbaratı (OSINT) yöntemleriyle yapılan taramalarda, sığınmacılara ait biyometrik verilerin dark web üzerinde <strong>"Tam Kimlik Paketi"</strong> adıyla 30 dolar gibi cüzi rakamlara satıldığı görülüyor.</p>
+
+        <p>Abbas şimdi İstanbul'un ara sokaklarında eşinin GGM'den çıkacağı günü bekliyor. Elindeki beraat ilamı, 398 milyon Euro'luk fonla güçlendirilmiş dijital duvarları aşmaya yetmiyor.</p>
+
+        <p>Avrupa'nın parasını verdiği, teknoloji devlerinin kodladığı ve Türkiye'nin uyguladığı bu sistemde; insan hakları mahkeme salonlarında kazanılsa bile, veritabanlarında kaybediliyor.</p>
+
+        <blockquote>"Bizim suçumuz suç işlemek değil, sistemde bir kod olarak var olmaktı."</blockquote>
+
+        <div class="footer-note">
+          Bu haber, Türkiye Gazeteciler Sendikası'nın Avrupa Birliği finansmanıyla yürüttüğü 'Medya Özgürlüğüne Destek - Güçlü Dayanışma, Özgür Medya Projesi' kapsamındaki 'Telif Destek Programı' desteğiyle üretildi.
+        </div>
       </div>
     </article>
   </main>
 
-  <!-- YAZILARIM -->
+  <!-- SIDEBAR -->
   <aside>
+
+    <!-- BÜLTEN KUTUCUĞU — BUTON versiyonu (aktif) -->
+    <div class="newsletter-box">
+      <span class="nb-label">Haber Bülteni</span>
+      <div class="nb-title">Her hafta gelen kutunuzda</div>
+      <p class="nb-desc">Göç, teknoloji ve insan hakları üzerine seçilmiş yazılar. Substack'ta ücretsiz abone olun.</p>
+      <a href="https://substack.com/@volkankahyalar?utm_source=share&utm_medium=android&r=1xsaf6" target="_blank" class="nb-btn">Abone Ol →</a>
+    </div>
+
+    <!-- BÜLTEN KUTUCUĞU — İFRAME versiyonu (kapalı; açmak için display:none'u kaldır) -->
+    <div class="newsletter-iframe-wrap">
+      <iframe src="https://volkankahyalar.substack.com/embed" scrolling="no"></iframe>
+    </div>
+
+    <!-- YAZILARIM -->
     <div class="w-head">Yazılarım</div>
     <ul class="w-list">
-      <li><a href="https://bianet.org/haber/beraat-yetmedi-gocnette-tehdit-olarak-kaldi-317272" target="_blank"><span class="t">Beraat yetmedi: GöçNet'te "tehdit" olarak kaldı</span><span class="m">Bianet · 3 Mart 2026</span></a></li>
-      <li><a href="https://bianet.org/haber/sosyal-medyanin-2025-karnesi-dijital-sinir-ihlalleri-ve-toplumsal-ofke-cagi-315038" target="_blank"><span class="t">Sosyal medyanın 2025 karnesi: Dijital sınır ihlalleri ve toplumsal öfke çağı</span><span class="m">Bianet · 31 Aralık 2025</span></a></li>
-      <!-- Yeni yazı eklemek için bu kalıbı kopyala:
-      <li><a href="YAZI_LINKI" target="_blank"><span class="t">YAZI BAŞLIĞI</span><span class="m">YAYIN · TARİH</span></a></li>
-      -->
+      <li>
+        <a href="https://bianet.org/haber/beraat-yetmedi-gocnette-tehdit-olarak-kaldi-317272" target="_blank">
+          <span class="t">Beraat yetmedi: GöçNet'te "tehdit" olarak kaldı</span>
+          <span class="m">Bianet · 3 Mart 2026</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://bianet.org/haber/sosyal-medyanin-2025-karnesi-dijital-sinir-ihlalleri-ve-toplumsal-ofke-cagi-315038" target="_blank">
+          <span class="t">Sosyal medyanın 2025 karnesi: Dijital sınır ihlalleri ve toplumsal öfke çağı</span>
+          <span class="m">Bianet · 31 Aralık 2025</span>
+        </a>
+      </li>
     </ul>
   </aside>
 
